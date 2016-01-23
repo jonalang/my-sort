@@ -19,7 +19,20 @@ void DisplayVector(char *message, int *array, int arraySize)
 int GetDataFromSubArray(SubArray subArray, int index)
 {
    return *(subArray.Array.Data + subArray.StartIndex + index);
- }
+}
+
+int *GenerateRandomArray(int array[], int arrayLength, int min, int max)
+{
+  int i;
+  int range = max - min;
+
+  for (i = 0; i < arrayLength; i++)
+    {
+      int newNumber = min + (RandInt() % range);
+      array[i] = newNumber;
+    }
+  return array;
+}
 
 // Sorts array using heapsort algorithm
 void HeapSort(int *inputArray, int arrayLength)
@@ -207,7 +220,7 @@ int Partition(SubArray inputSubArray)
 {
   int lowerPartitionIndex, arrayIndex;
   lowerPartitionIndex = inputSubArray.StartIndex;
-  int pivot = ValueFromArray(inputSubArray.Array, inputSubArray.EndIndex);
+  int pivot = ValueFromArray(inputSubArray.Array, inputSubArray.EndIndex);// Perhaps replace with ValueFromSubArray
   Array array = inputSubArray.Array;
 
   for(arrayIndex = inputSubArray.StartIndex; arrayIndex < inputSubArray.EndIndex; arrayIndex++)

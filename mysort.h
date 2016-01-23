@@ -32,6 +32,7 @@ typedef struct Heap{
 #define CREATEARRAY(arrayName, _arrayLength) int arrayName##Data[(_arrayLength)]; Array arrayName = {.Data = arrayName##Data, .Length = (_arrayLength)}
 
 void DisplayVector(char *message, int *array, int arraySize);
+int *GenerateRandomArray(int *initializedSpace, int arrayLength, int min, int max);
 int GetDataFromSubArray(SubArray subArray, int index);
 int Merge(SubArray left, SubArray right);
 int MergeSort(SubArray subArray);

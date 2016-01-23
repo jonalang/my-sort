@@ -2,7 +2,9 @@ CFLAGS = -Wall -g
 mylibdir = ../my-lib
 
 all:
-	gcc $(CFLAGS) -c -fPIC -iquote$(mylibdir) mysort.c -lmylib
+	gcc $(CFLAGS) -c -fPIC  mysort.c 
 	gcc -shared -L$(mylibdir) -Wl,-rpath,$(mylibdir) -o libmysort.so mysort.o -lmylib
+clean: 
+	rm libmysort.so
 
 
